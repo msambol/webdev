@@ -1,8 +1,5 @@
-import { MovieList } from './MovieList'
+import { MovieListSection } from './MovieListSection'
 
-export const AllMovies = ({movies}) => (
-  <section>
-    <h3>All Movies</h3>
-    <MovieList movies={movies} />
-  </section>
+export const AllMovies = ({ movies }) => (
+  <MovieListSection title="All Movies" movies={movies} filterable />
 )
