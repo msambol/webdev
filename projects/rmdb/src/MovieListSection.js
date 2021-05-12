@@ -1,12 +1,12 @@
 import { MovieList } from './MovieList'
 import { useState } from 'react'
+import { Section } from './Section'
 
-export const MovieListSection = ({ title, movies, filterable }) => {
+export const MovieListSection = ({ title, subtitle, movies, filterable, onAdd }) => {
   const [filterType, setFilterType] = useState(null)
   const filteredMovies = filterType ? movies.filter(m => m.Type === filterType) : movies
   return (
-    <section>
-      <h3>{title}</h3>
+    <Section title={title} subtitle={subtitle}>
       {filterable && (
         <div>
           <button onClick={() => { setFilterType(null) }}>All</button>
@@ -14,7 +14,7 @@ export const MovieListSection = ({ title, movies, filterable }) => {
           <button onClick={() => { setFilterType('movie') }}>Movies</button>
         </div>
       )}
-      <MovieList movies={filteredMovies} />
-    </section>
+      <MovieList movies={filteredMovies} onAdd={onAdd} />
+    </Section>
   )
 }
