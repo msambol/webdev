@@ -1,12 +1,6 @@
-import db from './db.json'
-
-const { movies } = db
-
-const featuredMovie = movies[0]
-
-export const MoviePoster = () => (
+export const MoviePoster = ({ poster }) => (
   <img
-    src={featuredMovie.Poster}
+    src={poster}
     width={75}
   />
 )
